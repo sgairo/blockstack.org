@@ -1,7 +1,6 @@
 'use strict';
 
 import {Component, PropTypes, cloneElement} from 'react'
-import Helmet from 'react-helmet'
 
 import Header             from './components/Header'
 import Footer             from './components/Footer'
@@ -49,9 +48,6 @@ class App extends Component {
 
     return (
       <div className={specialHeader ? 'app-landing' : 'app-common'}>
-        <Helmet
-          title="Helmet Main Title"
-        />
         <div>
           { !specialHeader ?
           <div>
