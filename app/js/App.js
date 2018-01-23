@@ -1,6 +1,7 @@
 'use strict';
 
 import {Component, PropTypes, cloneElement} from 'react'
+import Helmet from 'react-helmet'
 
 import Header             from './components/Header'
 import Footer             from './components/Footer'
@@ -48,15 +49,20 @@ class App extends Component {
 
     return (
       <div className={specialHeader ? 'app-landing' : 'app-common'}>
-        { !specialHeader ?
+        <Helmet
+          title="Helmet Main Title"
+        />
         <div>
-          <Header />
+          { !specialHeader ?
+          <div>
+            <Header />
+          </div>
+          : null }
+          {this.renderChildren()}
+          { !specialFooter ?
+          <Footer />
+          : null }
         </div>
-        : null }
-        {this.renderChildren()}
-        { !specialFooter ?
-        <Footer />
-        : null }
       </div>
     )
   }

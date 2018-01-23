@@ -1,8 +1,7 @@
 'use strict'
 
 import { Component }        from 'react'
-import DocumentTitle        from 'react-document-title'
-
+import Helmet               from 'react-helmet'
 import ContentSection       from '../components/ContentSection'
 import TeamMembers       from '../components/TeamMembers'
 
@@ -15,8 +14,17 @@ class AboutPage extends Component {
   render() {
 
     return (
-      <DocumentTitle title="Blockstack - About">
         <div>
+          <Helmet
+            title="Helmet About"
+            meta={[
+                        {property: 'twitter:card', content: 'summary_large_image'},
+                        {property: 'twitter:site', content: '@blockstack'},
+                        {property: 'twitter:title', content: 'Blockstack Helmet About'},
+                        {property: 'twitter:description', content: 'About blockstack helmet description'},
+                        {property: 'twitter:image', content: 'https://blockstack.org/images/resources/browser-home-screen@2x.png'},
+            ]}
+          />
           <div className="container-fluid container-lg sectionWrap bg-white">
             <div className="row">
               <div className="container">
@@ -143,13 +151,9 @@ class AboutPage extends Component {
           </div>
         </div>
       </div>
-      </DocumentTitle>
     )
   }
 
 }
 
 export default AboutPage
-
-
-
